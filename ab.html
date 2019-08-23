@@ -1,0 +1,29 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<script src="ab.js"></script>
+
+<link rel =stylesheet href="ab.css">
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+
+<body onload="startGame()">
+<h3>Change Value of Gravity</h3>
+<input type="range" id="gr" min="0" max="10" value="1" oninput="startGame()">
+<hr>
+<h3>Change Value of Velocity</h3>
+<input type="range" id="vel" min="0" max="10" value="5" oninput="startGame()">
+<hr>
+<h3>Change Value of Projectile Angle</h3>
+<input type="range" id="ang" min="0" max="180" value="30" oninput="startGame()">
+</body>
+</html>
