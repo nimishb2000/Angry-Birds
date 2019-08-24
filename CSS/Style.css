@@ -19,8 +19,8 @@
     background-size: contain;
     background-size: cover;
     position: absolute;
-    top: 72.5%;
-    left: 11.3%;
+    top: 575px;
+    left: 200px;
     z-index: 1;
     height: 50px;
     width: 50px;
@@ -119,7 +119,7 @@
 }
 .blocks{
     position: absolute;
-    bottom: 30px;
+    bottom: 75px;
     right: 150px;
     width: 103.2px;
     height: 433.8px;

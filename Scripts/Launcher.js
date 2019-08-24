@@ -25,11 +25,11 @@ function divMove(e){
     if(x > offsetX){
         new_x = offsetX;
     }
-    else if(offsetX - x < 100){
+    else if(offsetX - x < 125){
         new_x = x;
     }
     else{
-        new_x = offsetX - 100;
+        new_x = offsetX - 125;
     }
     if(y < offsetY){
         new_y = offsetY;
@@ -40,6 +40,7 @@ function divMove(e){
     else{
         new_y = offsetY + 50;
     }
+    console.log(offsetX, offsetY);
     bird.style.left = new_x + 'px';
     bird.style.top = new_y + 'px';
 }
