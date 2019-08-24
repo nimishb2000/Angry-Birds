@@ -15,7 +15,7 @@ h1 span{
     display:inline-block;
     font-size:9vw;
     font-family: Quantico;
-    animation: colorChange 3.8s alternate;
+    animation: colorChange 3.8s alternate infinite;
 }
 h1 span:nth-child(1){
     animation-delay:0s;

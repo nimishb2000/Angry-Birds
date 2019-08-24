@@ -1,3 +1,4 @@
+setTimeout(redirect, 7600);
 function col(){ 
     for(var i=1;i<=7;i++){
         var r=rand(256);
@@ -14,4 +15,7 @@ setInterval(col, 50);
 function rand(x){
     var z = Math.floor(Math.random()*x);
     return  z;
+}
+function redirect(){
+    location.assign("Home.html")
 }
