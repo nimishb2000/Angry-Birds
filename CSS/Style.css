@@ -1,0 +1,29 @@
+#bird{
+    background: url("x.webp");
+    background-size: contain;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 150px;
+}
+#home{
+    background: url("../Images/Background.jpg");
+    background-size: contain;
+    background-size: cover;
+}
+#btn{
+    position: absolute;
+    left: 45%;
+    top: 5%;
+    font-size: 2em;
+    font-family: cursive;
+    background: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red, violet);
+    background-size: 400%;
+    animation: bg 20s linear infinite;
+}
+@keyframes bg{
+    from{background-position: 0%;}
+    to{background-position: 400%;}
+}

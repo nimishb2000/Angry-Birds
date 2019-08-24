@@ -1,0 +1,50 @@
+body{
+    padding:0;
+    margin:0;
+    background-color:black;
+    color:white;
+}
+h1{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+}
+h1 span{
+    position:relative;
+    display:inline-block;
+    font-size:9vw;
+    font-family: Quantico;
+    animation: colorChange 3.8s alternate;
+}
+h1 span:nth-child(1){
+    animation-delay:0s;
+}
+h1 span:nth-child(1){
+    animation-delay:0.5s;
+}
+h1 span:nth-child(2){
+    animation-delay:1s;
+}
+h1 span:nth-child(3){
+    animation-delay:1.5s;
+}
+h1 span:nth-child(4){
+    animation-delay:2s;
+}
+h1 span:nth-child(5){
+    animation-delay:2.5s;
+}
+h1 span:nth-child(6){
+    animation-delay:3s;
+}
+h1 span:nth-child(7){
+    animation-delay:3.5s;
+}
+@keyframes colorChange{
+    0%{transform:translateY(0px) rotate(0deg);}
+    40%{transform:translateY(0px) rotate(0deg);}
+    50%{transform:translateY(-100px) rotate(180deg);}
+    60%{transform:translateY(0px) rotate(360deg);}
+    100%{transform:translateY(0px) rotate(360deg);}
+}
