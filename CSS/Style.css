@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
 }
+/*Bird Launcher*/
 #bird{
     background: url("../Images/Bird.png");
     background-size: contain;
@@ -14,40 +15,42 @@
     margin-left: 150px;
     cursor: crosshair;
 }
+
+/*Home Page*/
 #home{
     background: url("../Images/Background.jpg");
     background-size: contain;
     background-size: cover;
 }
-#start{
-    position: absolute;
-    left: 45%;
-    top: 5%;
+#start, #ins{
+    position: absolute;   
     color: white;
-    font-size: 1.75em;
+    font-size: 1.75em; 
     font-family: cursive;
     background: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red, violet);
     background-size: 400%;
     cursor: pointer;
     animation: backgroundColor 10s linear infinite;
+    border: 1.5px solid black;
 }
-#instruction{
-    position: absolute;
-    left: 41%;
+#start{
+    left: 43.65%;
+    top: 5%;
+    width: 150px;
+}
+#ins{
+    left: 40%;
     margin-top: 7%;
-    color: white;
-    font-size: 1.75em;
-    font-family: cursive;
+    width: 275px;
     position: relative;
-    background: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red, violet);
-    background-size: 400%;
-    cursor: pointer;
-    animation: backgroundColor 10s linear infinite reverse;
+    animation-direction: reverse;
 }
 @keyframes backgroundColor{
     from{background-position: 0%;}
     to{background-position: 400%;}
 }
+
+/*Instructions Page*/
 .instruction{
    user-select:none;
    background-color:#d65353;
@@ -68,4 +71,52 @@
     word-spacing: 3px;
     line-height: 35px;
     list-style: disc;
+}
+
+/*Levels*/
+.back{
+    background: url("../Images/Lvl%20Background.png");
+}
+.blocks{
+    position: absolute;
+    width: 100;
+    height: 100%;
+    right: 250px;
+    background: chartreuse;
+}
+[class*="brick-"]{
+    background-image: url(../Images/Block.jpg);
+    background-size: contain;
+    background-size: cover;
+    position: absolute;
+    border: 2px solid black;
+    width: 100px;
+    height: 45px;
+}
+.brick-1{
+    bottom: 10px;
+}
+.brick-2{
+    bottom: 55px;
+}
+.brick-3{
+    bottom: 100px;
+}
+.brick-4{
+    bottom: 145px;
+}
+.brick-5{
+    bottom: 190px;
+}
+.brick-6{
+    bottom: 235px;
+}
+.brick-7{
+    bottom: 280px;
+}
+.brick-8{
+    bottom: 325px;
+}
+.brick-9{
+    bottom: 370px;
 }
