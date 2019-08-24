@@ -13,17 +13,32 @@
     background-size: contain;
     background-size: cover;
 }
-#btn{
+#start{
     position: absolute;
     left: 45%;
     top: 5%;
-    font-size: 2em;
+    color: white;
+    font-size: 1.75em;
     font-family: cursive;
     background: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red, violet);
     background-size: 400%;
-    animation: bg 20s linear infinite;
+    cursor: pointer;
+    animation: backgroundColor 10s linear infinite;
 }
-@keyframes bg{
+#instruction{
+    position: absolute;
+    left: 41%;
+    margin-top: 7%;
+    color: white;
+    font-size: 1.75em;
+    font-family: cursive;
+    position: relative;
+    background: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red, violet);
+    background-size: 400%;
+    cursor: pointer;
+    animation: backgroundColor 10s linear infinite reverse;
+}
+@keyframes backgroundColor{
     from{background-position: 0%;}
     to{background-position: 400%;}
 }

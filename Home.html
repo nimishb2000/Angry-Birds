@@ -7,10 +7,14 @@
         <link rel="stylesheet" type="text/css" href="CSS/Style.css">
     </head>
     <body id="home">
-        <button id="btn" onclick="loc1()">Start Game</button>
+        <button id="start" onclick="start()">START</button>
+        <button id="instruction" onclick="ins">INSTRUCTIONS</button>
         <script>
-            function loc1(){
+            function start(){
                 location.assign("Levels/Level 1.html");
+            }
+            function ins(){
+                location.assign("Html/Instruction.html")
             }
         </script>
     </body>
