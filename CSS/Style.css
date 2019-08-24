@@ -4,7 +4,7 @@
     padding: 0;
 }
 #bird{
-    background: url("../Images/x.webp");
+    background: url("../Images/Bird.png");
     background-size: contain;
     background-size: cover;
     height: 50px;
