@@ -48,3 +48,24 @@
     from{background-position: 0%;}
     to{background-position: 400%;}
 }
+.instruction{
+   user-select:none;
+   background-color:#d65353;
+}
+.ins{
+    margin-top: 15%;
+    border:.5vw black double;
+    border-radius:100px;
+    text-align:center;
+    background-color:white;
+    box-shadow:0 10 10px #121212,0 0 20px #121212;
+}
+.list{
+    margin: 50px auto 50px 15%;
+    text-align: left;
+    font-family: Helvetica Nue;
+    font-size: 1.35em;
+    word-spacing: 3px;
+    line-height: 35px;
+    list-style: disc;
+}
