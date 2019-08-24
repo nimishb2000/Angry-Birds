@@ -4,15 +4,26 @@
     padding: 0;
 }
 /*Bird Launcher*/
+.slingshot{
+    background: url("../Images/Slingshot.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    width: 50px;
+    height: 100px;
+    left: 200px;
+    bottom: 75px;
+}
 #bird{
     background: url("../Images/Bird.png");
     background-size: contain;
+    position: relative;
+    z-index: 1;
     background-size: cover;
+    bottom: 30px;
+    left: -25px;
     height: 50px;
     width: 50px;
-    position: absolute;
-    margin-top: 150px;
-    margin-left: 150px;
     cursor: crosshair;
 }
 
@@ -76,6 +87,8 @@
 /*Levels*/
 .back{
     background: url("../Images/Lvl%20Background.png");
+    background-size: 100%;
+    overflow: hidden;
 }
 .blocks{
     position: absolute;
