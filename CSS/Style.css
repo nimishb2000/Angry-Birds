@@ -1,5 +1,10 @@
+*{
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
 #bird{
-    background: url("x.webp");
+    background: url("../Images/x.webp");
     background-size: contain;
     background-size: cover;
     height: 50px;
@@ -7,6 +12,7 @@
     position: absolute;
     margin-top: 150px;
     margin-left: 150px;
+    cursor: crosshair;
 }
 #home{
     background: url("../Images/Background.jpg");

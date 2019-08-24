@@ -1,17 +1,20 @@
-window.onload = addListeners;
-function addListeners(){
-    document.getElementById('bird').addEventListener('mousedown', mouseDown, false);
-    window.addEventListener('mouseup', mouseUp, false);
+"use strict";
+var x, y;
+document.getElementById('bird').addEventListener('mousedown', mouseDown);
+window.addEventListener('mouseup', mouseUp);
+function mouseDown(){
+    x = event.clientX;
+    y = event.clientY;
+    window.addEventListener('mousemove', divMove, true);
 }
 function mouseUp(){
     window.removeEventListener('mousemove', divMove, true);
 }
-function mouseDown(e){
-  window.addEventListener('mousemove', divMove, true);
-}
 function divMove(e){
-    var div = document.getElementById('bird');
-    div.style.position = 'absolute';
-    div.style.top = (e.clientY - 175) + 'px';
-    div.style.left = (e.clientX - 175) + 'px';
+    var shiftX, shiftY;
+    var bird = document.getElementById('bird');
+    var new_x = e.clientX - 25;
+    var new_y = e.clientY - 25;
+    bird.style.marginLeft = new_x + 'px';
+    bird.style.marginTop = new_y + 'px';
 }
