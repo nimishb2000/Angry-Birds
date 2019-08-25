@@ -111,10 +111,11 @@
     list-style: disc;
 }
 
-/*Levels*/
+/*Level*/
 .back{
     background: url("../Images/Lvl%20Background.png");
-    background-size: 100%;
+    background-size: contain;
+    background-size: cover;
     overflow: hidden;
 }
 .blocks{
