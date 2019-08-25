@@ -16,7 +16,6 @@
 }
 #bird{
     background: url("../Images/Bird.png");
-    background-size: contain;
     background-size: cover;
     position: absolute;
     top: 575px;
@@ -114,11 +113,10 @@
 /*Level*/
 .back{
     background: url("../Images/Lvl%20Background.png");
-    background-size: contain;
     background-size: cover;
     overflow: hidden;
 }
-.blocks{
+#blocks{
     position: absolute;
     bottom: 75px;
     right: 150px;
@@ -128,7 +126,7 @@
     justify-content: flex-end;
     flex-direction: column;
 }
-[class*="brick-"]{
+.brick{
     background-image: url(../Images/Block.jpg);
     background-size: contain;
     background-size: cover;
