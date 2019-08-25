@@ -1,7 +1,8 @@
-var disp, speed, height, angle, new_x, new_y, range, offsetX, offsetY;
+var disp, speed, height, angle, new_x, new_y, offsetX, offsetY, i;
 var bird = document.getElementById('bird');
 var slingshot = document.getElementById('slingshot');
 var blocks = document.getElementById('blocks');
+var bricks = document.getElementsByClassName('brick');
 bird.addEventListener('mousedown', mouseDown);
 window.addEventListener('mouseup', mouseUp);
 function mouseUp(){
@@ -42,46 +43,48 @@ function calculations(){
     angle = Math.atan((new_y - offsetY)/(offsetX - new_x));
     speed = disp;
     var sin = Math.sin(angle);
-    var sin_2 = Math.sin(2 * angle);
-    if(bird.style.top === "575px"){
-        range = speed * Math.sqrt(20);
-    }
-    else{
-        range = (Math.pow(speed, 2) * sin_2)/5;
-    }
-    height = (Math.pow(speed * sin, 2))/10;
+    height = (Math.pow(speed * sin, 2))/50;
     var y1, y2;
     y1 = y2 = bird.offsetTop;
-    console.log(y1);
-    console.log(height);
     parabola = setInterval(move, 5);
     function move(){
         var x = bird.offsetLeft;
         var y = bird.offsetTop;
-        x+=4;
+        x+=2;
         var limit = blocks.offsetLeft;
         if(angle*(180/Math.PI) == 90){
-            x-=4;
-        }
-        else if(x + 49 >= limit){
-            clearInterval(parabola);
+            x-=2;
         }
         else{
             bird.style.left = x + 'px';
         }
         if(angle == 0){
-            y += 1;
+            y++;
             bird.style.top = y + 'px';
         }
         else{
             if(y1 > height){
-                y1 -= 3;
+                y1-=2;
                 bird.style.top = y1 + 'px';
                 y2 = y1;
             }
             else{
-                y2 += 3;
+                y2+=2;
                 bird.style.top = y2 + 'px';
+            }
+        }
+        if(x >= 2000 || y > 1100){
+            clearInterval(parabola);
+        }
+        check_collision();
+    }
+}
+function check_collision(){
+    for(i=0; i<9; i++){
+        if(bird.offsetLeft >= blocks.offsetLeft){
+            if(bird.offsetTop > bricks[i].offsetTop && bird.offsetTop < bricks[i].offsetTop+45){
+                bricks[i].style.display = "none";
+                console.log(i);
             }
         }
     }
