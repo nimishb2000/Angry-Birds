@@ -32,72 +32,34 @@
     background-size: contain;
     background-size: cover;
 }
-#start, #ins{
-    position: absolute;   
-    color: white;
-    font-size: 1.75em; 
-    font-family: cursive;
-    background: linear-gradient(90deg, violet, indigo, blue, green, yellow, orange, red, violet);
-    background-size: 400%;
-    cursor: pointer;
-    animation: backgroundColor 10s linear infinite;
-    border: 1.5px solid black;
-}
-#start{
-    left: 43.65%;
-    top: 5%;
-    width: 150px;
-}
-#ins{
-    left: 40%;
-    margin-top: 7%;
-    width: 275px;
-    position: relative;
-    animation-direction: reverse;
-}
-@keyframes backgroundColor{
-    from{background-position: 0%;}
-    to{background-position: 400%;}
+#enter{
+    text-align: center;
+    background: black;
+    font-size: 5em;
+    background: linear-gradient(90deg, yellow, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 /*Instructions Page*/
 .instruction{
-   user-select:none;
-   background-color:#d65353;
+    user-select:none;
+    background: linear-gradient(90deg, blue, black);
 }
-.cross {
-    position: absolute;
-    left: 32px;
-    top: 32px;
-    width: 32px;
-    height: 32px;
-    opacity: 0.5;
-    transition: opacity 0.5s;
+#heading{
+    margin-top: 3%;
+    text-align: center;
+    background: blue;
+    background: linear-gradient(90deg, red, yellow);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-.cross:hover{
-    opacity: 1;
-}
-.cross::before, .cross::after {
-    position: absolute;
-    right: 15px;
-    content: ' ';
-    height: 33px;
-    width: 2px;
-    background-color: black;
-}
-.cross::before {
-    transform: rotate(45deg);
-}
-.cross::after {
-    transform: rotate(-45deg);
-}
-
 .ins{
-    margin-top: 15%;
+    margin-top: 10%;
     border:.5vw black double;
     border-radius:100px;
     text-align:center;
-    background-color:white;
+    background-color: white;
     box-shadow:0 10 10px #121212,0 0 20px #121212;
 }
 .list{

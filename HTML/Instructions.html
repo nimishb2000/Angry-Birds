@@ -3,11 +3,11 @@
     <head>
         <title>Angry Birds</title>
         <meta charset="utf-8">
-        <link rel="icon" type="image/x-icon" href="Images/favicon.ico">
-        <link rel = "stylesheet" href="CSS/Style.css">
+        <link rel="icon" type="image/x-icon" href="../Images/favicon.ico">
+        <link rel = "stylesheet" href="../CSS/Style.css">
     </head>
     <body class="instruction">
-        <a href="Home.html" class="cross"></a>
+        <h1 id="heading">Click to Continue</h1>
         <div align="center" class="ins">
             <h1 style="margin-top: 20px">Instructions</h1>
             <div class="list">
@@ -18,5 +18,10 @@
                 <li>When the game ends, the player has option to restart the game.</li> 
             </div>
         </div>
+        <script>
+            window.onmousedown = function(){
+                location.assign("../Levels/Level 1.html");
+            }
+        </script>
     </body>
 </html>

@@ -1,4 +1,4 @@
-setTimeout(redirect, 7600);
+setTimeout(redirect, 3500);
 function col(){ 
     for(var i=1;i<=7;i++){
         var r=rand(256);
@@ -17,5 +17,5 @@ function rand(x){
     return  z;
 }
 function redirect(){
-    location.assign("Home.html")
+    location.assign("HTML/Home.html")
 }
