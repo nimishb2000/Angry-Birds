@@ -14,7 +14,7 @@
     left: 200px;
     bottom: 75px;
 }
-#bird{
+[id*="bird"]{
     background: url("../Images/Bird.png");
     background-size: cover;
     position: absolute;
@@ -111,28 +111,46 @@
 }
 
 /*Level*/
-.back{
+#background{
     background: url("../Images/Lvl%20Background.png");
     background-size: cover;
     overflow: hidden;
 }
-#blocks{
-    position: absolute;
-    bottom: 75px;
+[id*="brick"]{
     right: 150px;
-    width: 103.2px;
-    height: 433.8px;
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-}
-.brick{
     background-image: url(../Images/Block.jpg);
     background-size: contain;
     background-size: cover;
     float: bottom;
-    position: relative;
+    position: absolute;
     border: 2px solid black;
     width: 100px;
     height: 45px;
+}
+#brick1{
+    bottom: 75px;   
+}
+#brick2{
+    bottom: 120px;
+}
+#brick3{
+    bottom: 165px;
+}
+#brick4{
+    bottom: 210px;
+}
+#brick5{
+    bottom: 255px;
+}
+#brick6{
+    bottom: 300px;
+}
+#brick7{
+    bottom: 345px;
+}
+#brick8{
+    bottom: 390px;
+}
+#brick9{
+    bottom: 435px;
 }

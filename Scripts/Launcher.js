@@ -1,16 +1,24 @@
-var disp, speed, height, angle, new_x, new_y, offsetX, offsetY, i;
-var bird = document.getElementById('bird');
-var slingshot = document.getElementById('slingshot');
-var blocks = document.getElementById('blocks');
-var bricks = document.getElementsByClassName('brick');
-bird.addEventListener('mousedown', mouseDown);
-window.addEventListener('mouseup', mouseUp);
+var count=1;
+var speed, angle, new_x, new_y, offsetX, offsetY, i, j, bricks_left = 9, bird, slingshot, bricks;
+window.onload = bird_launch;
+function bird_launch(){
+    if(count <= 12){
+        bird = document.getElementById('bird'+count);
+        slingshot = document.getElementById('slingshot');
+        bricks = document.getElementById('brick1');
+        bird.addEventListener('mousedown', mouseDown);
+        window.addEventListener('mouseup', mouseUp);
+    }
+    else{
+        alert("Game Over!");
+    }
+}
 function mouseUp(){
     window.removeEventListener('mousemove', birdMove, true);
     calculations();
 }
 function mouseDown(){
-  window.addEventListener('mousemove', birdMove, true);
+    window.addEventListener('mousemove', birdMove, true);
 }
 function birdMove(e){
     var x = e.clientX - 25;
@@ -39,53 +47,70 @@ function birdMove(e){
     bird.style.top = new_y + 'px';
 }
 function calculations(){
-    disp = Math.sqrt(Math.pow(offsetX - new_x, 2) + Math.pow(new_y - offsetY, 2));
+    speed = Math.sqrt(Math.pow(offsetX - new_x, 2) + Math.pow(new_y - offsetY, 2));
     angle = Math.atan((new_y - offsetY)/(offsetX - new_x));
-    speed = disp;
-    var sin = Math.sin(angle);
-    height = (Math.pow(speed * sin, 2))/50;
-    var y1, y2;
-    y1 = y2 = bird.offsetTop;
+    if(isNaN(speed)){
+        return;
+    }
+    var cos = Math.cos(angle);
     parabola = setInterval(move, 5);
+    var orig_y = bird.offsetTop;
     function move(){
         var x = bird.offsetLeft;
-        var y = bird.offsetTop;
-        x+=2;
-        var limit = blocks.offsetLeft;
-        if(angle*(180/Math.PI) == 90){
-            x-=2;
-        }
-        else{
-            bird.style.left = x + 'px';
-        }
-        if(angle == 0){
-            y++;
-            bird.style.top = y + 'px';
-        }
-        else{
-            if(y1 > height){
-                y1-=2;
-                bird.style.top = y1 + 'px';
-                y2 = y1;
-            }
-            else{
-                y2+=2;
-                bird.style.top = y2 + 'px';
-            }
-        }
-        if(x >= 2000 || y > 1100){
+        x+=5;
+        var y = (x * Math.tan(angle)) - (5 * (x * x)/(2 * Math.pow(speed * cos, 2)));
+        bird.style.left = x + 'px';
+        bird.style.top = (orig_y - y) + 'px';
+        if(x>=1920 || bird.offsetTop >= 1080){
             clearInterval(parabola);
+            create_bird();
         }
         check_collision();
     }
 }
 function check_collision(){
-    for(i=0; i<9; i++){
-        if(bird.offsetLeft >= blocks.offsetLeft){
-            if(bird.offsetTop > bricks[i].offsetTop && bird.offsetTop < bricks[i].offsetTop+45){
-                bricks[i].style.display = "none";
-                console.log(i);
+    if(bird.offsetLeft + 50 >= bricks.offsetLeft && bird.offsetLeft + 50 <= bricks.offsetLeft + 100){
+        var destroy = 0;
+        for(i=1; i<=9; i++){
+            var id_brick = "brick"+i;
+            var brick_check = document.getElementById(id_brick);
+            var birdTop = bird.offsetTop;
+            if(birdTop + 26.5 > brick_check.offsetTop && birdTop + 26.5 <= brick_check.offsetTop + 45){
+                brick_check.style.display = 'none';
+                clearInterval(parabola);
+                remove_bird();
+                setTimeout(create_bird, 500);
+                destroy = 1;
+                j = i;
+                bricks_left--;
+                break;
             }
         }
+        if(bricks_left == 0){
+            alert("You Won!");
+        }
+        if(destroy == 1){
+            setTimeout(shift_bricks, 100);
+        }
     }
+}
+function shift_bricks(){
+    for(i=j+1; i<=9; i++){
+        var brick_id = "brick"+i;
+        var brick = document.getElementById(brick_id);
+        var brick_top = brick.offsetTop;
+        brick.style.top = (brick_top + 45) + 'px';
+    }
+}
+function remove_bird(){
+    bird.remove();
+}
+function create_bird(){
+    count++;
+    var bird_new = document.createElement('div');
+    bird_new.id = 'bird'+count;
+    console.log('bird'+count);
+    var body = document.getElementById('background');
+    body.appendChild(bird_new);
+    bird_launch();
 }
