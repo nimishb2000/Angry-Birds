@@ -123,3 +123,71 @@
 #brick9{
     bottom: 435px;
 }
+
+/*Game Over*/
+#lost{
+    background:#333;
+    color: yellow;
+    text-align:center;
+}
+#gameOver{
+    font-size:5em;
+}
+#main{
+    margin-left: 42.5%;
+    border:1px solid #ffdc66;
+    height:200px;
+    width:200px;
+    background:#ffdc66;
+    border-radius:100px;
+}
+#eyes{
+    border:1px solid transparent;
+    height:10px;
+    width:150px;
+    display:flex;
+    margin-top:60px;
+    margin-left:50px;
+}
+#left{
+    border:1px solid #654e25;
+    height:15px;
+    width:15px;
+    border-radius:50%;
+    background:#654e25;
+}
+#right{
+    border:1px solid #654e25;
+    height:15px;
+    width:15px;
+    border-radius:50%;
+    margin-left:60px;
+    background:#654e25;
+}
+#smile{
+    border:1px solid transparent;
+    height:40px;
+    width:100px;
+    border-radius:50%;
+    margin-left:45px;
+    margin-top:40px;
+    box-shadow:inset 1px 6px #654e25;
+}
+.click{
+    position: absolute;
+    bottom: 1%;
+    text-align: center;
+}
+
+/*You Win*/
+
+#win{
+    background-image: linear-gradient(90deg, yellow, red);
+    color: #9400D3;
+}
+#win_heading{
+    text-align: center;
+    font-size: 120px;
+    font-family: "Algerian",serif;
+    font-style: bold;
+}

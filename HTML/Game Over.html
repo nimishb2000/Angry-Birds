@@ -2,16 +2,23 @@
 <html>
     <head>
         <title>Lost</title>
-        <link rel ="stylesheet" href="l.css">
+        <link rel ="stylesheet" href="../CSS/Style.css">
     </head>
-    <body>
-        <h1>You Lost</h1>
+    <body id="lost">
+        <h1 id="gameOver">Game Over</h1>
         <div id="main">
             <div id="eyes">
                 <div id="left"></div>
                 <div id="right"></div>
             </div>
             <div id="smile"></div>
+            <p class="click">Click to play again</p>
         </div>
+        <script>
+            window.onmousedown = replay;
+            function replay(){
+                location.assign('Instructions.html')
+            }
+        </script>
     </body>
 </html>

@@ -1,25 +1,17 @@
 <!DOCTYPE html>
-<html><head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"><style>
-body{
-	 
-	   background-image: linear-gradient(yellow, red);
-	 
-
-	}
-h1{
-	text-align: center;
-	color: #9400D3;
-	font-size: 120px;
-	font-family: "Algerian",serif;
-	font-style: bold;
-	font-stretch: expanded;
-
-
-	
-}
-</style>
-</head><body>
-<h1>YOU WIN</h1>
-
-</body></html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="../CSS/Style.css">
+    </head>
+    <body id="win">
+        <h1 id="win_heading">YOU WIN</h1>
+        <p class="click">Click to play again</p>
+        <script>
+            window.onmousedown = replay;
+            function replay(){
+                location.assign('Instructions.html')
+            }
+        </script>
+    </body>
+</html>

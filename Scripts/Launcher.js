@@ -13,6 +13,8 @@ function bird_launch(){
     }
 }
 function mouseUp(){
+    var audio = new Audio('../Sounds/Bird%20Launch.mp3');
+    audio.play();
     window.removeEventListener('mousemove', birdMove, true);
     calculations();
 }
@@ -70,7 +72,7 @@ function calculations(){
             create_bird();
         }
         check_collision();
-        x+=5;
+        x+=3;
     }
 }
 function check_collision(){
@@ -84,10 +86,12 @@ function check_collision(){
                 continue;
             }
             else if(birdTop + 26.5 > brick_check.offsetTop && birdTop + 26.5 <= brick_check.offsetTop + 45){
+                var audio = new Audio('../Sounds/Brick%20Break.mp3');
+                audio.play();
                 brick_check.style.display = 'none';
                 clearInterval(parabola);
                 bird.remove();
-                setTimeout(create_bird, 500);
+                setTimeout(create_bird, 1000);
                 destroy = 1;
                 j = i;
                 bricks_left--;
@@ -112,6 +116,8 @@ function shift_bricks(){
 }
 function create_bird(){
     count++;
+    var audio = new Audio('../Sounds/Bird%20Load.mp3');
+    audio.play();
     var bird_new = document.createElement('div');
     bird_new.id = 'bird'+count;
     var body = document.getElementById('background');
