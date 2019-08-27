@@ -77,6 +77,13 @@
     background: url("../Images/Lvl%20Background.png");
     background-size: cover;
     overflow: hidden;
+    font-size: 1.5em;
+}
+#limit, #timer{
+    margin: 1%;
+}
+#limit{
+    float: right;
 }
 [id*="brick"]{
     right: 150px;
