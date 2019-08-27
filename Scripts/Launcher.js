@@ -1,8 +1,8 @@
-var count=1;
-var angle, new_x, new_y, offsetX, offsetY, i, j, bricks_left = 9, bird, slingshot, bricks, time_left = 60, x=0, y=1;
+var count=1;    //For Bird Limit
+var angle, new_x, new_y, offsetX, offsetY, i, j, bricks_left = 9, bird, slingshot, bricks, time_left = 60, x=0;
 window.onload = bird_launch;
 function bird_launch(){
-    if(count <= 12){
+    if(count <= 12){        //12 is maximum number of birds
         bird = document.getElementById('bird'+count);
         slingshot = document.getElementById('slingshot');
         bricks = document.getElementById('brick1');
@@ -21,13 +21,13 @@ function mouseUp(){
 function mouseDown(){
     window.addEventListener('mouseup', mouseUp);
     window.addEventListener('mousemove', birdMove, true);
-    if(x==0){
-        timer();
+    if(x == 0){     //For starting the Timer
         x=1;
+        timer();
     }
 }
 function birdMove(e){
-    var x = e.clientX - 25;
+    var x = e.clientX - 25;     //Gets Coordinate of mouse
     var y = e.clientY - 25;
     offsetX = slingshot.offsetLeft;
     offsetY = slingshot.offsetTop;
@@ -55,16 +55,15 @@ function birdMove(e){
 function calculations(){
     speed = Math.sqrt(Math.pow(offsetX - new_x, 2) + Math.pow(new_y - offsetY, 2));
     angle = Math.atan((new_y - offsetY)/(offsetX - new_x));
-    console.log(speed);
     if(isNaN(speed)){
         return;
     }
     var cos = Math.cos(angle);
+    var orig_y = bird.offsetTop;        //Initial top margin
+    var x = bird.offsetLeft;            //Initial left margin
     parabola = setInterval(move, 5);
-    var orig_y = bird.offsetTop;
-    var x = bird.offsetLeft;
     function move(){
-        var y = (x * Math.tan(angle)) - (5 * (x * x)/(2 * Math.pow(speed * cos, 2)));
+        var y = (x * Math.tan(angle)) - (5 * (x * x)/(2 * Math.pow(speed * cos, 2)));   //Equation of projectile motion
         bird.style.left = x + 'px';
         bird.style.top = (orig_y - y) + 'px';
         if(x>=1920 || bird.offsetTop >= 1080){
@@ -76,16 +75,12 @@ function calculations(){
     }
 }
 function check_collision(){
-    if(bird.offsetLeft + 50 >= bricks.offsetLeft && bird.offsetLeft + 50 <= bricks.offsetLeft + 100){
+    if(bird.offsetLeft + 50 >= bricks.offsetLeft && bird.offsetLeft + 50 <= bricks.offsetLeft + 100){           //+100 for right
         var destroy = 0;
         for(i=1; i<=9; i++){
-            var id_brick = "brick"+i;
-            var brick_check = document.getElementById(id_brick);
+            var brick_check = document.getElementById("brick"+i);
             var birdTop = bird.offsetTop;
-            if(brick_check.style.display == "none"){
-                continue;
-            }
-            else if(birdTop + 26.5 > brick_check.offsetTop && birdTop + 26.5 <= brick_check.offsetTop + 45){
+            if(birdTop + 26.5 > brick_check.offsetTop && birdTop + 26.5 <= brick_check.offsetTop + 45){         //+45 for bottom
                 var audio = new Audio('../Sounds/Brick%20Break.mp3');
                 audio.play();
                 brick_check.style.display = 'none';
@@ -108,8 +103,7 @@ function check_collision(){
 }
 function shift_bricks(){
     for(i=j+1; i<=9; i++){
-        var brick_id = "brick"+i;
-        var brick = document.getElementById(brick_id);
+        var brick = document.getElementById("brick"+i);
         var brick_top = brick.offsetTop;
         brick.style.top = (brick_top + 45) + 'px';
     }
@@ -125,10 +119,9 @@ function create_bird(){
     reduce_bird(count);
     bird_launch();
 }
-function reduce_bird(){
+function reduce_bird(y){
     var p = document.getElementById('limit');
     p.innerHTML = 'Birds Left: ' + (12-y);
-    y++;
 }
 function timer(){
     var p = document.getElementById('timer');
