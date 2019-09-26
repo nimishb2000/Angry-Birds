@@ -1,11 +1,11 @@
 var count=1;    //For Bird Limit
 var angle, new_x, new_y, offsetX, offsetY, i, j, bricks_left = 9, bird, slingshot, bricks, time_left = 60, x=0;
+var margin = document.getElementById('brick1').offsetLeft;
 window.onload = bird_launch;
 function bird_launch(){
     if(count <= 12){        //12 is maximum number of birds
         bird = document.getElementById('bird'+count);
         slingshot = document.getElementById('slingshot');
-        bricks = document.getElementById('brick1');
         bird.addEventListener('mousedown', mouseDown);
     }
     else{
@@ -71,11 +71,11 @@ function calculations(){
             create_bird();
         }
         check_collision();
-        x+=3;
+        x+=5;
     }
 }
 function check_collision(){
-    if(bird.offsetLeft + 50 >= bricks.offsetLeft && bird.offsetLeft + 50 <= bricks.offsetLeft + 100){           //+100 for right
+    if(bird.offsetLeft + 50 >= margin && bird.offsetLeft + 50 <= margin + 100){           //+100 for right
         var destroy = 0;
         for(i=1; i<=9; i++){
             var brick_check = document.getElementById("brick"+i);
